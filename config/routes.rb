@@ -25,6 +25,16 @@ Rails.application.routes.draw do
 
   patch "password/reset/edit", to: "password_resets#update"
 
+  get "/auth/twitter/callback", to: "omniauth_callbacks#twitter"
+
+  resources :twitter_accounts
+  #resources is going to generate all of the crud action
+  #its going to set them up so we have the show which is
+  # get "twitter_accounts/:id"
+  # delete "twitter_accounts/:id"
+
+
+
 
 
   root to: "main#index"
