@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="mb-3 card-body">
+    <%= tweet.body %>
+      <div class="me-4">
+        <%= image_tag tweet.twitter_account.image, class: "rounded-circle" %>
+        <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank %>
+
+        <% if tweet.published? %>
+          <%= link_to "View Tweet", "https://twitter.com/TheCinesthetic/status/#{tweet.twitter_account.username}", target: :_blank %>
+        <% else %>
+          Scheduled for <%= l tweet.publish_at, format: :short %>
+        <% end %>
+    </div>
+  </div>
+</div>
